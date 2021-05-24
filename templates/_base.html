@@ -1,4 +1,5 @@
 <!-- template/_base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +7,8 @@
         <title>
             {% block title %}Organizer{% endblock title %}
         </title>
+        <!-- CSS -->
+        <link rel = "stylesheet" href="{% static 'css/base.css' %}">
     </head>
     <body>
         <div class="container">
@@ -13,5 +16,8 @@
               
             {% endblock content %}
         </div>
+
+        <!-- javaScript -->
+        <script src="{% static 'js/base.js' %}"></script>
     </body>
 </html>
