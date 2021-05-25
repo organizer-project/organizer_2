@@ -37,17 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     # local
     'accounts',
     'main_app',
 ]
 
-# django-crispy-forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4' 
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -127,6 +128,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+# -------------------- new added configuration ---------------------------------------------------------------------------
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -140,6 +142,21 @@ STATICFILES_FINDERS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
-
+# where to go after login 
 LOGIN_REDIRECT_URL = 'home'
+# where to go after logout
 LOGOUT_REDIRECT_URL = 'home'
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4' 
+
+
+# django-allauth config
+SITE_ID = 1 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+# override email backend as we dont have SMTP server 
+# it will print the message on the consol
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
