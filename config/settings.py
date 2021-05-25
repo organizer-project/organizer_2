@@ -157,6 +157,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+# ACCOUNT_SESSION_REMEMBER = True 
+# SACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 # override email backend as we dont have SMTP server 
 # it will print the message on the consol
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

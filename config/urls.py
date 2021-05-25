@@ -23,9 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # User managment this includes a lot of pages for account managemnt 
     # can be seen in official auth doc
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     # local apps
-    path('accounts/', include('accounts.urls')),
     path('', include('main_app.urls')),
     
 ]
