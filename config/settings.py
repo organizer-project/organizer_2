@@ -162,3 +162,8 @@ AUTHENTICATION_BACKENDS = (
 # override email backend as we dont have SMTP server 
 # it will print the message on the consol
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
