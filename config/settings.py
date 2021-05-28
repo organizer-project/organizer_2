@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'django.middleware.cach.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -189,3 +191,9 @@ DEFAULT_FROM_EMAIL = 'admin@organizer.com'
 import socket 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips] 
+
+# cach setting
+
+CACH_MIDDLEWARE_ALIAS = 'default'
+CACH_MIDDLEWARE_SECONDS = 604800 # one week cach stored
+CACH_MIDDLEWARE_KEY_PREFIX = ''
