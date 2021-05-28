@@ -1,0 +1,3 @@
+docker-compose-prod.yml
+__phcach__/
+db.sqlite3
