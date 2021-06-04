@@ -19,16 +19,16 @@ def TestPageView(request):
 
 
 @login_required(login_url='account_login')
-@allowed_users(allowed_roles=['admin','Design'])
+@allowed_users(allowed_roles=['Admin','Design'])
 def DesignerPageView(request):
     return render(request, 'designer.html')
 
 @login_required(login_url='account_login')
-@allowed_users(allowed_roles=['Managment'])
+@allowed_users(allowed_roles=['Admin','Managment'])
 def ManagmentPageView(request):
     return render(request, 'managment.html')
 
 @login_required(login_url='account_login')
-@allowed_users(allowed_roles=['Sales'])
+@allowed_users(allowed_roles=['Admin','Sales'])
 def SalesPage(request):
     return render(request, 'sales.html')
